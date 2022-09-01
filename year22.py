@@ -127,3 +127,17 @@ def k22(message):
 		*2.* {para2} - `{paracab2}`
 		*3.* {para3} - `{paracab3}`
 		*4.* {para4} - `{paracab4}`''', parse_mode='Markdown')
+def rzh22(message):
+	para1 = sheet["AW2"].value
+	paracab1 = sheet["AX2"].value
+	para2 = sheet["AW3"].value
+	paracab2 = sheet["AX3"].value
+	para3 = sheet["AW4"].value
+	paracab3 = sheet["AX4"].value
+	para4 = sheet["AW5"].value
+	paracab4 = sheet["AX5"].value
+	bot.send_message(message.chat.id, f'''*Расписание на сегодня для группы* `РЗХ-22`:
+		*1.* {para1} - `{paracab1}`
+		*2.* {para2} - `{paracab2}`
+		*3.* {para3} - `{paracab3}`
+		*4.* {para4} - `{paracab4}`''', parse_mode='Markdown')

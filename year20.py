@@ -106,17 +106,3 @@ def sp20(message):
 		*2.* {para2} - `{paracab2}`
 		*3.* {para3} - `{paracab3}`
 		*4.* {para4} - `{paracab4}`''', parse_mode='Markdown')
-def k20(message):
-	para1 = sheet["O2"].value
-	paracab1 = sheet["P2"].value
-	para2 = sheet["O3"].value
-	paracab2 = sheet["P3"].value
-	para3 = sheet["O4"].value
-	paracab3 = sheet["P4"].value
-	para4 = sheet["O5"].value
-	paracab4 = sheet["P5"].value
-	bot.send_message(message.chat.id, f'''*Расписание на сегодня для группы* `К-20`:
-		*1.* {para1} - `{paracab1}`
-		*2.* {para2} - `{paracab2}`
-		*3.* {para3} - `{paracab3}`
-		*4.* {para4} - `{paracab4}`''', parse_mode='Markdown')

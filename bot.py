@@ -2,13 +2,14 @@ import openpyxl
 import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InputMediaDocument
 from telebot import types
+from year19 import *
 from year20 import *
 from year21 import *
 from year22 import *
 print("""Охаё, семпай)""")
 print("""Приступаю к работе""")
 ########################################################################
-bot = telebot.TeleBot('5934523592:YBubuBJHBubyUTBVUIBugioduibyuIbHBNK')#
+bot = telebot.TeleBot('5597120964:AAHXdqnwf_COtq3LBLMmtxA76tchYUKtXdE')#
 ########################################################################
 book = openpyxl.open("data.xlsx", read_only=True)
 sheet = book.active
@@ -16,6 +17,9 @@ sheet = book.active
 @bot.message_handler(commands=['start'])
 def start(message):
 	keyboard=types.ReplyKeyboardMarkup(resize_keyboard=True)
+	sp19 = types.KeyboardButton("СП-19")
+	at2_19 = types.KeyboardButton("2АТ-19")
+	keyboard.row(sp19, at2_19)
 	mroa20 = types.KeyboardButton("МРОА-20")
 	s20 = types.KeyboardButton("С-20")
 	t20 = types.KeyboardButton("Т-20")
@@ -24,8 +28,7 @@ def start(message):
 	mci20 = types.KeyboardButton("МЦИ-20")
 	at2_20 = types.KeyboardButton("2АТ-20")
 	sp20 = types.KeyboardButton("СП-20")
-	k20 = types.KeyboardButton("К-20")
-	keyboard.row(mci20, at2_20, sp20, k20)
+	keyboard.row(mci20, at2_20, sp20)
 	mroa21 = types.KeyboardButton("МРОА-21")
 	s21 = types.KeyboardButton("С-21")
 	t21 = types.KeyboardButton("Т-21")
@@ -39,13 +42,15 @@ def start(message):
 	mroa22 = types.KeyboardButton("МРОА-22")
 	s22 = types.KeyboardButton("С-22")
 	t22 = types.KeyboardButton("Т-22")
-	mjkh22 = types.KeyboardButton("МЖКХ-22")
+	mjkh22 = types.KeyboardButton("2МРОА-22")
 	keyboard.row(mroa22, s22, t22, mjkh22)
 	mci22 = types.KeyboardButton("МЦИ-22")
 	at2_22 = types.KeyboardButton("2АТ-22")
 	sp22 = types.KeyboardButton("СП-22")
 	k22 = types.KeyboardButton("К-22")
 	keyboard.row(mci22, at2_22, sp22, k22)
+	rzh22 = types.KeyboardButton("РЗХ-22")
+	keyboard.row(rzh22)
 	mainmessage = '''Приветик) Меня зовут *Распи*. Я подскажу тебе расписание твоих пар на сегодня в твоём любимом Копейском Политехническом.)
 	
 	Выбирай свою группу. Удачного дня, семпай)
@@ -56,6 +61,10 @@ def start(message):
 
 @bot.message_handler(content_types=['text'])
 def mainfunction(message):
+	if message.text == 'СП-19':
+		sp19(message)
+	if message.text == '2АТ-19':
+		at2_19(message)
 	if message.text == 'МРОА-20':
 		mroa20(message)
 	if message.text == 'С-20':
@@ -70,8 +79,6 @@ def mainfunction(message):
 		sp20(message)
 	if message.text == 'МЖКХ-20':
 		mjkh20(message)
-	if message.text == 'К-20':	
-		k20(message)
 	if message.text == 'МРОА-21':
 		mroa21(message)
 	if message.text == 'С-21':
@@ -100,10 +107,13 @@ def mainfunction(message):
 		at2_22(message)
 	if message.text == 'СП-22':	
 		sp22(message)
-	if message.text == 'МЖКХ-22':
+	if message.text == '2МРОА-22':
 		mjkh22(message)
 	if message.text == 'К-22':	
 		k22(message)
+	if message.text == "РЗХ-22":
+		rzh22(message)
+
 	# else:
 	# 	bot.send_message(message.chat.id, text="Произошла какая-то ошибка :( попробуй еще раз, пожалуйста")
 
