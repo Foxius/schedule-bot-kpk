@@ -6,10 +6,11 @@ from year19 import *
 from year20 import *
 from year21 import *
 from year22 import *
+from config import token
 print("""Охаё, семпай)""")
 print("""Приступаю к работе""")
 ########################################################################
-bot = telebot.TeleBot('5597120964:AAHXdqnwf_COtq3LBLMmtxA76tchYUKtXdE')#
+bot = telebot.TeleBot(token)#
 ########################################################################
 book = openpyxl.open("data.xlsx", read_only=True)
 sheet = book.active
