@@ -2,11 +2,11 @@ import openpyxl
 import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InputMediaDocument
 from telebot import types
-
+from config import token
 book = openpyxl.open("data.xlsx", read_only=True)
 sheet = book.active
 
-bot = telebot.TeleBot('5597120964:AAHu9iHjb1tsIbHYwmlvQ-a0cdXnkXUpwD8')
+bot = telebot.TeleBot(token)
 #AGAH AIAJ AKAL AMAN AOAP AQAR ASAT AUAV
 def mroa22(message):
 	para1 = sheet["AG2"].value
